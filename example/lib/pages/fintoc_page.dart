@@ -21,7 +21,9 @@ class _FintocPageState extends State<FintocPage> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: const [
         Expanded(
-          child: FintocWidgetView(),
+          child: FintocWidgetView(
+            options: {},
+          ),
         ),
       ],
     );
