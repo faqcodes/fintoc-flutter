@@ -4,6 +4,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'handler_enum.dart';
 import 'navigation_event.dart';
 import 'option_enum.dart';
+import 'constants.dart' as Constants;
 
 class FintocWidgetView extends StatefulWidget {
   const FintocWidgetView({super.key, required this.options, this.handlers});
@@ -22,11 +23,13 @@ class _FintocWidgetView extends State<FintocWidgetView> {
   void initState() {
     debugPrint('FintocWidgetView: initState');
 
-    final fintocWidgetUri = Uri.parse('https://fintoc.com');
+    widget.options.removeWhere((key, value) => value.isEmpty);
 
-    widget.options
-        .map((key, value) => MapEntry(key.name!, value))
-        .removeWhere((key, value) => value.isEmpty);
+    final options =
+        widget.options.map((key, value) => MapEntry(key.name!, value));
+
+    final fintocWidgetUri = Uri.https(
+        Constants.FINTOC_WEBVIEW_HOST, Constants.FINTOC_WEBVIEW_PATH, options);
 
     controller = WebViewController()
       ..loadRequest(fintocWidgetUri)
