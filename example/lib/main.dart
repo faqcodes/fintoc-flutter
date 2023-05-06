@@ -27,8 +27,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(
-        title: 'Plugin Demo',
+      home: Scaffold(
+        backgroundColor: Colors.grey.shade200,
+        body: const MyHomePage(
+          title: 'Plugin Demo',
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:fintoc_example/pages/fintoc_page.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -33,14 +34,59 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text('Mi producto por: 5.000 CLP'),
-        TextButton(
-          onPressed: () => {},
-          child: const Text('Pagar con Fintoc'),
-        )
+        Material(
+          color: Colors.grey.shade200,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(15.0, 0, 15.0, 0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.grey.shade300,
+                  width: 1,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ListTile(
+                leading: SizedBox(
+                  height: 50.0,
+                  child: Image.asset(
+                    'assets/images/watch.jpeg',
+                  ),
+                ),
+                title: const Text('My fancy product'),
+                subtitle: const Text('PRICE: 5.000 CLP'),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        ElevatedButton.icon(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FintocPage(),
+              ),
+            );
+          },
+          icon: Image.asset(
+            'assets/images/fintoc_icon.png',
+            height: 16.0,
+          ),
+          label: const Text(
+            'PAGAR CON FINTOC',
+          ),
+        ),
       ],
     );
   }
