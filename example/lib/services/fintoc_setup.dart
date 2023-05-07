@@ -1,21 +1,14 @@
-import 'package:flutter/widgets.dart';
 import 'package:fintoc/main.dart';
 
 class FintocSetup {
   Map<FintocWidgetOption, String>? _widgetOptions;
-  Map<FintocWidgetEventHandler, Function>? _widgetHandlers;
 
   Map<FintocWidgetOption, String> get widgetOptions {
     return _widgetOptions!;
   }
 
-  Map<FintocWidgetEventHandler, Function> get widgetHandlers {
-    return _widgetHandlers!;
-  }
-
   FintocSetup() {
     _initializeOptions();
-    _initializeEventHandlers();
   }
 
   void _initializeOptions() {
@@ -28,38 +21,7 @@ class FintocSetup {
       FintocWidgetOption.username: '',
       FintocWidgetOption.webhookUrl: '',
       FintocWidgetOption.widgetToken:
-          'pi_2XpwQpSB4oob1Ken_sec_ePeAWFoCHRxan1jeHVhuh5yb',
+          'pi_E2xABaSkRaeRd8Gk_sec_ns1Rxdfi8NBUBMgcZELb5aVA',
     };
-  }
-
-  void _initializeEventHandlers() {
-    _widgetHandlers = {
-      FintocWidgetEventHandler.succeeded: (_) => _onSuccess(_),
-      FintocWidgetEventHandler.exit: (_) => _onExit(_),
-      FintocWidgetEventHandler.event: (name) => _onEvent(name),
-      FintocWidgetEventHandler.error: (error) => _onError(error),
-    };
-  }
-
-  void _onSuccess(String data) {
-    debugPrint('onSucess from FintocWidgetView: $data');
-  }
-
-  void _onExit(String data) {
-    debugPrint('onExit from FintocWidgetView: $data');
-  }
-
-  void _onEvent(String eventName) {
-    debugPrint('onEvent from FintocWidgetView: $eventName');
-
-    if (eventName == 'opened') {}
-
-    if (eventName == 'payment_error') {}
-
-    if (eventName == 'closed') {}
-  }
-
-  void _onError(dynamic error) {
-    debugPrint('onError from FintocWidgetView: $error');
   }
 }
