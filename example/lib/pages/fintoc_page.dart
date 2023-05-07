@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:fintoc/main.dart';
 import 'package:fintoc_example/services/fintoc_setup.dart';
-import 'package:flutter/material.dart';
 
 class FintocPage extends StatefulWidget {
   const FintocPage({super.key, required this.amount});
