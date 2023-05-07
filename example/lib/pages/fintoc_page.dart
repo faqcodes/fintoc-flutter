@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fintoc/main.dart';
 import 'package:fintoc_example/services/fintoc_setup.dart';
 import 'package:flutter/material.dart';
@@ -10,11 +12,20 @@ class FintocPage extends StatefulWidget {
 }
 
 class _FintocPageState extends State<FintocPage> {
+  var opened = false;
   var fintocSetup = FintocSetup();
 
   @override
   void initState() {
     super.initState();
+
+    // Si no se obtiene el evento opened en 3 sec. tal vez ocurrió un error
+    Timer(const Duration(seconds: 3), () {
+      if (!opened) {
+        // Si
+        _onError('Error no controlado en widget');
+      }
+    });
   }
 
   void _onSuccess(String data) {
@@ -32,7 +43,9 @@ class _FintocPageState extends State<FintocPage> {
   void _onEvent(String eventName) {
     debugPrint('onEvent from FintocWidgetView: $eventName');
 
-    if (eventName == 'opened') {}
+    if (eventName == 'opened') {
+      setState(() => opened = true);
+    }
 
     if (eventName == 'payment_error') {}
 
@@ -43,6 +56,7 @@ class _FintocPageState extends State<FintocPage> {
 
   void _onError(dynamic error) {
     debugPrint('onError from FintocWidgetView: $error');
+    Navigator.pop(context);
   }
 
   @override

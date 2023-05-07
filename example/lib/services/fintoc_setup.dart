@@ -21,7 +21,7 @@ class FintocSetup {
       FintocWidgetOption.username: '',
       FintocWidgetOption.webhookUrl: '',
       FintocWidgetOption.widgetToken:
-          'pi_E2xABaSkRaeRd8Gk_sec_ns1Rxdfi8NBUBMgcZELb5aVA',
+          'pi_V2q1ebS6MVX4wrpn_sec_TspSBZg3S6NubjaoDoEESUtf',
     };
   }
 }
