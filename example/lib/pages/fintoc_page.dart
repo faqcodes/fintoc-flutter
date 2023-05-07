@@ -5,7 +5,9 @@ import 'package:fintoc_example/services/fintoc_setup.dart';
 import 'package:flutter/material.dart';
 
 class FintocPage extends StatefulWidget {
-  const FintocPage({super.key});
+  const FintocPage({super.key, required this.amount});
+
+  final double amount;
 
   @override
   State<FintocPage> createState() => _FintocPageState();
@@ -13,17 +15,16 @@ class FintocPage extends StatefulWidget {
 
 class _FintocPageState extends State<FintocPage> {
   var opened = false;
-  var fintocSetup = FintocSetup();
 
   @override
   void initState() {
     super.initState();
 
-    // Si no se obtiene el evento opened en 3 sec. tal vez ocurrió un error
+    // If the widget has not been opened in 3 sec. an error may have occurred
     Timer(const Duration(seconds: 3), () {
       if (!opened) {
-        // Si
-        _onError('Error no controlado en widget');
+        // Widget unhandled error
+        _onError('Widget unhandled error');
       }
     });
   }
@@ -56,7 +57,8 @@ class _FintocPageState extends State<FintocPage> {
 
   void _onError(dynamic error) {
     debugPrint('onError from FintocWidgetView: $error');
-    Navigator.pop(context);
+    // TODO: handle errors
+    // Navigator.pop(context);
   }
 
   @override
@@ -68,17 +70,26 @@ class _FintocPageState extends State<FintocPage> {
       FintocWidgetEventHandler.error: (error) => _onError(error),
     };
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-          child: FintocWidgetView(
-            options: fintocSetup.widgetOptions,
-            handlers: widgetHandlers,
-          ),
-        ),
-      ],
+    return FutureBuilder(
+      future: initializeOptions(widget.amount),
+      builder: (context, options) {
+        if (!options.hasData) {
+          return Container();
+        }
+
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: FintocWidgetView(
+                options: options.data!,
+                handlers: widgetHandlers,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const double amount = 5000.0;
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -75,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const FintocPage(),
+                builder: (context) => const FintocPage(
+                  amount: amount,
+                ),
               ),
             );
           },
