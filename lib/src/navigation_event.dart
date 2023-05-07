@@ -19,14 +19,16 @@ class NavigationEvent {
           }
 
           if (uri.isScheme('fintocwidget')) {
-            debugPrint('onNavigationRequest: fintocwidget schema found');
+            debugPrint('onNavigationRequest: on fintocwidget schema');
+
+            final host = FintocWidgetEventHandler.values.byName(uri.host);
+
             final event =
                 uri.pathSegments.isNotEmpty ? uri.pathSegments.first : '';
 
             debugPrint(
-                'onNavigationRequest: call finctoc event ${uri.host}/$event');
-
-            eventHandlers?[uri.host]?.call(event);
+                'onNavigationRequest: call finctoc event: ${uri.host}/$event');
+            eventHandlers?[host]?.call(event);
 
             return NavigationDecision.prevent;
           }

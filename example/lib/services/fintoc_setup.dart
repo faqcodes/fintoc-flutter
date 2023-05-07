@@ -28,7 +28,7 @@ class FintocSetup {
       FintocWidgetOption.username: '',
       FintocWidgetOption.webhookUrl: '',
       FintocWidgetOption.widgetToken:
-          'pi_RxZd7OSv8vDydqKO_sec_2XVV6hP9Lt1TFxRXCMwyYAtH',
+          'pi_2XpwQpSB4oob1Ken_sec_ePeAWFoCHRxan1jeHVhuh5yb',
     };
   }
 
@@ -51,6 +51,12 @@ class FintocSetup {
 
   void _onEvent(String eventName) {
     debugPrint('onEvent from FintocWidgetView: $eventName');
+
+    if (eventName == 'opened') {}
+
+    if (eventName == 'payment_error') {}
+
+    if (eventName == 'closed') {}
   }
 
   void _onError(dynamic error) {
