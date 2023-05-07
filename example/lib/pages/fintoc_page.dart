@@ -1,4 +1,5 @@
 import 'package:fintoc/main.dart';
+import 'package:fintoc_example/services/fintoc_setup.dart';
 import 'package:flutter/material.dart';
 
 class FintocPage extends StatefulWidget {
@@ -9,6 +10,8 @@ class FintocPage extends StatefulWidget {
 }
 
 class _FintocPageState extends State<FintocPage> {
+  var fintocSetup = FintocSetup();
+
   @override
   void initState() {
     super.initState();
@@ -19,10 +22,11 @@ class _FintocPageState extends State<FintocPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: const [
+      children: [
         Expanded(
           child: FintocWidgetView(
-            options: {},
+            options: fintocSetup.widgetOptions,
+            handlers: fintocSetup.widgetHandlers,
           ),
         ),
       ],

@@ -9,7 +9,7 @@ class NavigationEvent {
   ) =>
       NavigationDelegate(
         onNavigationRequest: (NavigationRequest request) {
-          assert(eventHandlers == null);
+          assert(eventHandlers != null);
 
           final uri = Uri.tryParse(request.url);
 
@@ -20,9 +20,12 @@ class NavigationEvent {
 
           if (uri.isScheme('fintocwidget')) {
             debugPrint('onNavigationRequest: fintocwidget schema found');
-            final event = uri.pathSegments.first;
+            final event =
+                uri.pathSegments.isNotEmpty ? uri.pathSegments.first : '';
 
-            debugPrint('onNavigationRequest: call finctoc event');
+            debugPrint(
+                'onNavigationRequest: call finctoc event ${uri.host}/$event');
+
             eventHandlers?[uri.host]?.call(event);
 
             return NavigationDecision.prevent;
