@@ -8,18 +8,31 @@
 
 ## Installation
 
-Install using flutter pub
+Install using flutter
 
 ```sh
-flutter pub add fintoc_flutter
+flutter pub add fintoc
+```
+
+Install using dart
+
+```sh
+dart pub add fintoc
+```
+
+This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
+
+```dart
+dependencies:
+  fintoc: ^1.0.0
 ```
 
 ## Usage
 
-`Fintoc Flutter` exports a single component called `FintocWidgetView`. This is a Flutter component that creates the same WebView from [the native WebView documentation](https://docs.fintoc.com/docs/widget-webview-integration#how-it-works). To use the Fintoc View, use the following _snippet_:
+`Fintoc Flutter` exports a single component called `FintocWidgetView`. This is a Flutter component that creates the same WebView from [the native WebView documentation](https://docs.fintoc.com/docs/widget-webview-integration#how-it-works). To use the Fintoc Flutter, use the following _snippet_:
 
 ```dart
-import 'package:fintoc/main.dart';
+import 'package:fintoc/fintoc.dart';
 ```
 
 After retrieving the `FintocWidgetView` component, you are ready to instantiate the widget:
@@ -62,7 +75,6 @@ return Column(
 
 Here, `options` corresponds to an object with the parameters received by the widget (you can read more about these parameters [here](https://docs.fintoc.com/docs/widget-webview-integration#how-it-works)), and `onSuccess`, `onEvent` and `onExit` correspond to the WebView redirections detailed [here](https://docs.fintoc.com/docs/widget-webview-integration#webview-redirections).
 
-## Developing
 
 ## Acknowledgements
 
