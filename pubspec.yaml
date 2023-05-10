@@ -2,6 +2,7 @@ name: fintoc
 description: A new Flutter plugin project.
 version: 0.0.1
 
+
 environment:
   sdk: '>=2.19.6 <3.0.0'
   flutter: ">=2.5.0"

@@ -1,5 +1,6 @@
-import 'package:fintoc_example/pages/fintoc_page.dart';
 import 'package:flutter/material.dart';
+
+import 'fintoc_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
