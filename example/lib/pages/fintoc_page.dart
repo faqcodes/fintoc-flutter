@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:fintoc/fintoc.dart';
@@ -21,30 +22,33 @@ class _FintocPageState extends State<FintocPage> {
   void initState() {
     super.initState();
 
-    // If the widget has not been opened in 3 sec. an error may have occurred
-    Timer(const Duration(seconds: 3), () {
-      if (!opened) {
-        // Widget unhandled error
-        _onError('Widget unhandled error');
-      }
-    });
+    if (Platform.isAndroid) {
+      // If the widget has not been opened in 5 sec. an error may have occurred
+      Timer(const Duration(seconds: 5), () {
+        if (!opened) {
+          // Timed out for widget to respond!
+          _onError('Timed out for widget to respond!');
+        }
+      });
+    }
   }
 
   void _onSuccess(String data) {
     debugPrint('onSucess from FintocWidgetView: $data');
 
-    Navigator.pop(context);
+    Navigator.maybePop(context);
   }
 
   void _onExit(String data) {
     debugPrint('onExit from FintocWidgetView: $data');
 
-    Navigator.pop(context);
+    Navigator.maybePop(context);
   }
 
   void _onEvent(String eventName) {
     debugPrint('onEvent from FintocWidgetView: $eventName');
 
+    // event/on_authentication_form
     if (eventName == 'opened') {
       setState(() => opened = true);
     }
@@ -52,14 +56,14 @@ class _FintocPageState extends State<FintocPage> {
     if (eventName == 'payment_error') {}
 
     if (eventName == 'closed') {
-      Navigator.pop(context);
+      Navigator.maybePop(context);
     }
   }
 
   void _onError(dynamic error) {
     debugPrint('onError from FintocWidgetView: $error');
     // TODO: handle errors
-    // Navigator.pop(context);
+    Navigator.maybePop(context);
   }
 
   @override
