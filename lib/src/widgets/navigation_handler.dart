@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'handler_enum.dart';
+import '../commons/handler_enum.dart';
 
 class NavigationEvent {
   static NavigationDelegate handler(

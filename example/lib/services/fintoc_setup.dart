@@ -1,6 +1,6 @@
 import 'package:fintoc/fintoc.dart';
 
-import 'fintoc_service.dart';
+import 'backend.dart';
 
 Future<Map<FintocWidgetOption, String>> initializeOptions(double amount) async {
   final value = await paymentIntent(amount);

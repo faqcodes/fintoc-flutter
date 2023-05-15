@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'constants.dart' as constants;
-import 'handler_enum.dart';
-import 'option_enum.dart';
-import 'navigation_event.dart';
+import '../constants/constants.dart' as constants;
+import '../commons/handler_enum.dart';
+import '../commons/option_enum.dart';
+import 'navigation_handler.dart';
 
 class FintocWidgetView extends StatefulWidget {
   const FintocWidgetView({super.key, required this.options, this.handlers});

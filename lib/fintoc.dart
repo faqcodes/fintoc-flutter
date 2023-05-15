@@ -1,3 +1,3 @@
-export 'src/option_enum.dart';
-export 'src/handler_enum.dart';
-export 'src/fintoc.dart';
+export 'src/commons/option_enum.dart';
+export 'src/commons/handler_enum.dart';
+export 'src/widgets/fintoc_widget.dart';
