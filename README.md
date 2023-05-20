@@ -1,10 +1,6 @@
-<h1 align="center">Fintoc Flutter</h1>
+# Fintoc Flutter
 
-<p align="center">
-    <em>
-        Use the <a href="https://docs.fintoc.com/docs/widget" target="_blank">Fintoc widget</a> within your Flutter application as a View.
-    </em>
-</p>
+Use the <a href="https://docs.fintoc.com/docs/widget" target="_blank">Fintoc widget</a> within your Flutter application as a View.
 
 ## Installation
 
@@ -29,7 +25,7 @@ dependencies:
 
 ## Usage
 
-`Fintoc Flutter` exports a single component called `FintocWidgetView`. This is a Flutter component that creates the same WebView from [the native WebView documentation](https://docs.fintoc.com/docs/widget-webview-integration#how-it-works). To use the Fintoc Flutter, use the following _snippet_:
+`Fintoc Flutter` exports a component called `FintocWidgetView`. This is a Flutter component that creates the same WebView from [the native WebView documentation](https://docs.fintoc.com/docs/widget-webview-integration#how-it-works). To use the `Fintoc Flutter`, use the following _snippet_:
 
 ```dart
 import 'package:fintoc/fintoc.dart';
