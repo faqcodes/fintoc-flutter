@@ -1,6 +1,6 @@
 name: fintoc
 description: Use the Fintoc widget within your Flutter application as a View
-version: 0.0.1
+version: 1.0.0
 homepage: https://github.com/faqcodes/fintoc-flutter
 repository: https://github.com/faqcodes/fintoc-flutter
 issue_tracker: https://github.com/faqcodes/fintoc-flutter/issues
