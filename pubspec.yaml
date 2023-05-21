@@ -5,7 +5,7 @@ homepage: https://github.com/faqcodes/fintoc-flutter
 repository: https://github.com/faqcodes/fintoc-flutter
 issue_tracker: https://github.com/faqcodes/fintoc-flutter/issues
 
-publish_to: 'none'
+# publish_to: 'none'
 
 environment:
   sdk: '>=2.19.6 <4.0.0'
@@ -24,7 +24,6 @@ dev_dependencies:
   mockito: ^5.4.0
   webview_flutter_android: ^3.7.0
   webview_flutter_platform_interface: ^2.3.0
-  # test: ^1.24.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
