@@ -13,13 +13,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
-
-      - name: Install flutter
-        run: sudo snap install flutter --classic
 
       - id: install
-        name: Install dependencies
+        name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Check formatting
@@ -37,13 +38,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
+
+      - id: install
+        name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
 
       - name: Install flutter
         run: snap install flutter --classic
   
-      - id: install
-        name: Install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Run VM tests
@@ -57,13 +62,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
+
+      - id: install
+        name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
 
       - name: Install flutter
         run: snap install flutter --classic
 
-      - id: install
-        name: Install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - id: coverage
@@ -84,13 +93,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
+
+      - id: install
+        name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
 
       - name: Install flutter
         run: snap install flutter --classic
 
-      - id: install
-        name: Install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
       - name: Publish project
