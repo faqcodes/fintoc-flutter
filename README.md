@@ -1,5 +1,13 @@
 # Fintoc Flutter
 
+[![Pub Package](https://img.shields.io/pub/v/fintoc.svg)](https://pub.dartlang.org/packages/fintoc)
+[![Dart Publish](https://github.com/faqcodes/fintoc-flutter/actions/workflows/publish.yml/badge.svg)](https://github.com/faqcodes/fintoc/actions/workflows/publish.yml)
+[![Coverage Status](https://codecov.io/gh/faqcodes/fintoc-flutter/branch/main/graph/badge.svg?token=THZUBKL6ZR)](https://codecov.io/gh/faqcodes/fintoc-flutter)
+[![GitHub Issues](https://img.shields.io/github/issues/faqcodes/fintoc-flutter.svg?branch=main)](https://github.com/faqcodes/fintoc-flutter/issues)
+[![GitHub Forks](https://img.shields.io/github/forks/faqcodes/fintoc-flutter.svg?branch=main)](https://github.com/faqcodes/fintoc-flutter/network)
+[![GitHub Stars](https://img.shields.io/github/stars/faqcodes/fintoc-flutter.svg?branch=main)](https://github.com/faqcodes/fintoc-flutter/stargazers)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 Use the <a href="https://docs.fintoc.com/docs/widget" target="_blank">Fintoc widget</a> within your Flutter application as a View.
 
 ## Installation
