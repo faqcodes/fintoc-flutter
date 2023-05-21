@@ -16,7 +16,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1.5.0
 
       - name: Install flutter
-        run: snap install flutter --classic
+        run: sudo snap install flutter --classic
 
       - id: install
         name: Install dependencies
