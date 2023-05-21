@@ -15,21 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - id: install
-        name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-      
-      - name: Disable telemetry
-        run: flutter --disable-telemetry
-
-      - id: dependencies
-        name: Install dependencies
-        run: flutter pub get
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Publish project
-        run: flutter pub publish
-        if: always() && steps.dependencies.outcome == 'success'
+        uses: sakebook/actions-flutter-pub-publisher@v1.4.1
+        with:
+          credential: ${{ secrets.GOOGLE_ACCOUNT_CREDENTIALS }}
+          flutter_package: false
+          skip_test: true
