@@ -14,21 +14,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - id: install
-        name: Install Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          
-      - name: Install dependencies
+      
+      - name: Disable telemetry
+        run: flutter --disable-telemetry
+
+      - id: install
+        name: Install dependencies
         run: flutter pub get
 
       - name: Check formatting
-        run: flutter format --output=none --set-exit-if-changed .
+        run: dart format --output=none --set-exit-if-changed .
         if: always() && steps.install.outcome == 'success'
 
       - name: Analyze project source
-        run: flutter analyze --fatal-warnings --fatal-infos --verbose .
+        run: dart analyze --fatal-warnings --fatal-infos .
         if: always() && steps.install.outcome == 'success'
 
   test:
@@ -39,18 +42,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - id: install
-        name: Install Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
 
-      - name: Install flutter
-        run: snap install flutter --classic
+      - name: Disable telemetry
+        run: flutter --disable-telemetry
   
-      - name: Install dependencies
+      - id: install
+        name: Install dependencies
         run: flutter pub get
-
+    
       - name: Run VM tests
         run: flutter test --platform vm
         if: always() && steps.install.outcome == 'success'
@@ -63,16 +66,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - id: install
-        name: Install Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
 
-      - name: Install flutter
-        run: snap install flutter --classic
-
-      - name: Install dependencies
+      - name: Disable telemetry
+        run: flutter --disable-telemetry
+  
+      - id: install
+        name: Install dependencies
         run: flutter pub get
 
       - id: coverage
@@ -94,16 +97,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - id: install
-        name: Install Flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
 
-      - name: Install flutter
-        run: snap install flutter --classic
-
-      - name: Install dependencies
+      - name: Disable telemetry
+        run: flutter --disable-telemetry
+  
+      - id: install
+        name: Install dependencies
         run: flutter pub get
 
       - name: Publish project
