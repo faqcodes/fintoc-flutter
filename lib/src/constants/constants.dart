@@ -1,4 +1,3 @@
-
 // ignore_for_file: constant_identifier_names
 
 const String FINTOC_WIDGET_HOST = 'wizard.fintoc.com';
