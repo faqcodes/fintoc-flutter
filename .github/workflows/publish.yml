@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Publish project
-        uses: sakebook/actions-flutter-pub-publisher@v1.4.1
+        uses: sakebook/actions-flutter-pub-publisher@v1.3.1
         with:
           credential: ${{ secrets.GOOGLE_ACCOUNT_CREDENTIALS }}
           flutter_package: false
