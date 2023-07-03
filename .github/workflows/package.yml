@@ -3,8 +3,6 @@ name: ci package
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
 
@@ -46,6 +44,6 @@ jobs:
         uses: codecov/codecov-action@v3
         if: always() && steps.test.outcome == 'success'
 
-      - name: Publish project
+      - name: Test publish project
         run: flutter pub publish --dry-run
         if: always() && steps.test.outcome == 'success'
